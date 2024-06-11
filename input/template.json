@@ -1,35 +1,18 @@
 {
-    "name": "Cute Squares",
-    "symbol": "CS",
-    "description": "Cutest squares on Solana Network!!",
-    "seller_fee_basis_points": 500,
-    "image": "image.png",
-    "external_url": "YOUR WEBPAGE",
-    "attributes": 
-    [
-    ],
-    "collection":
-    {
-        "name": "Solana Cute Squares",
-        "family": "Solseum NFT Generator"
-    },
-    "properties":
-    {
-        "files":
-        [
+    "name": "Hashrate Servers #2",
+    "symbol": "HASH",
+    "description": "234 Servers Mining Crypto",
+    "image": "1.png",
+    "external_url": "https://hashrateservers.com",
+    "attributes": [],
+    "properties": {
+        "files": [
             {
-                "uri": "image.png",
+                "uri": "1.png",
                 "type": "image/png"
             }
         ],
-        "category": "image",
-        "creators":
-        [
-            {
-                "address": "2QvVjytnfYyFJUnVC9xGu3ejjVTNDzTUjfvodrn6NVcn",
-                "share": 100
-            }
-        ]
+        "category": "image"
     }
 }
 

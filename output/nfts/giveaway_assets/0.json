@@ -1,57 +1,46 @@
 {
-    "name": "Cute Squares #3",
-    "symbol": "CS",
-    "description": "Cutest squares on Solana Network!!",
-    "seller_fee_basis_points": 500,
-    "image": "image.png",
-    "external_url": "YOUR WEBPAGE",
+    "name": "Hashrate Servers #2",
+    "symbol": "HASH",
+    "description": "234 Servers Mining Crypto",
+    "image": "0.png",
+    "external_url": "https://hashrateservers.com",
     "attributes": [
         {
             "trait_type": "Background",
             "value": "Orange"
         },
         {
-            "trait_type": "Border color",
-            "value": "Cyan border"
+            "trait_type": "Border Color",
+            "value": "Cyan Border"
         },
         {
-            "trait_type": "Border dots",
-            "value": "Brown dots"
+            "trait_type": "Border Dots",
+            "value": "Nothing"
         },
         {
-            "trait_type": "Example text",
+            "trait_type": "Example Text",
             "value": "Example 6"
         },
         {
-            "trait_type": "Simple draw",
-            "value": "Fish"
+            "trait_type": "Simple Draw",
+            "value": "Flower"
         },
         {
             "trait_type": "Watermark",
-            "value": "Top right"
+            "value": "Down Middle"
         },
         {
-            "trait_type": "Border mark",
+            "trait_type": "Border Mark",
             "value": "Nothing"
         }
     ],
-    "collection": {
-        "name": "Solana Cute Squares",
-        "family": "Solseum NFT Generator"
-    },
     "properties": {
         "files": [
             {
-                "uri": "image.png",
+                "uri": "0.png",
                 "type": "image/png"
             }
         ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "2QvVjytnfYyFJUnVC9xGu3ejjVTNDzTUjfvodrn6NVcn",
-                "share": 100
-            }
-        ]
+        "category": "image"
     }
 }

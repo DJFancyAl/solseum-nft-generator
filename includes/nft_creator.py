@@ -189,7 +189,7 @@ class NftCreator:
             nftMetadata = dict(jsonTemplate)
             nftName = nftMetadata['name']
             nftMetadata['attributes'] = nftAttributes
-            nftMetadata['name'] = nftName + ' #' + str(self.nftsCreatedCounter+1)
+            nftMetadata['name'] = nftName
             nft = Nft(nftsCounterThisRun, nftMetadata['name'], rawAttributes, filteredAttributes,nftMetadata, nftPaths, orderedLayersPath, attributes_count, folder_path)
             nftsCreated.append(nft)
             self.nftsCreatedCounter += 1
