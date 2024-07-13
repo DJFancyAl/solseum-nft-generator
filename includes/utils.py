@@ -1,4 +1,6 @@
 from optparse import OptionParser
+import sys
+
 def Args(numberNFTs, testRarities, randomizeOutput):
     parser = OptionParser()
     
@@ -7,8 +9,25 @@ def Args(numberNFTs, testRarities, randomizeOutput):
     parser.add_option('-g', '--giveaway-nfts', dest = 'giveaway_nfts', help = 'Number of candy machine NFTs for giveways. [default=0]', metavar = 'INT', type = 'int')
     parser.add_option('-t', '--test-rarities', dest = 'test_rarities', help = 'Calculate the rarities without creating NFTs. [default=0]', metavar = 'BOOL (0 or 1)', type = 'int')
     parser.add_option('-r', '--randomize-output', dest = 'randomize_output', help = 'Randomize the output of the nfts (f.e. the 0.json can be the NFT #123) [default = 0]', metavar = 'BOOL (0 or 1)', type = 'int')
+    parser.add_option('-m', '--man', action="store_true", help = 'Creates type "Man" NFTs.')
+    parser.add_option('-f', '--female', action="store_true", help = 'Creates type "Female" NFTs.')
+    parser.add_option('-e', '--extras', action="store_true", help = 'Creates type "Extras" NFTs.')
     
     opts, args = parser.parse_args()
+
+    nftType = []
+    if not opts.man and not opts.female and not opts.extras:
+        print('*************\n')
+        print('Please select "man or female" NFTs (-m or -f).\n')
+        print('*************')
+        sys.exit(1)
+    if opts.man:
+        nftType.append('man')
+    if opts.female:
+        nftType.append('female')
+    if opts.extras:
+        nftType.append('extras')
+
 
     if opts.public_nfts:
         numberNFTs[0] = max(0,int(opts.public_nfts))
@@ -33,4 +52,4 @@ def Args(numberNFTs, testRarities, randomizeOutput):
         print('THE MEANING OF THIS IS: YOUR 0.json THAT SHOULD BE NFT #0, CAN BE THE NFT #1234 AND SO ON.')
         print()
 
-    return numberNFTs, testRarities, randomizeOutput
+    return numberNFTs, testRarities, randomizeOutput, nftType

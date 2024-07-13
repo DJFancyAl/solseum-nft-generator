@@ -4,7 +4,7 @@ from includes.rarity_calculator import RarityCalculator
 
 #Folders names that will store ur uniques nfts, u can add more!
 folderPaths = ['public_mint_assets','whitelist_mint_assets','giveaway_assets']
-numberNFTs, testRarities, randomizedOutput = Args([0 for i in folderPaths], False, False)
+numberNFTs, testRarities, randomizedOutput, nftType = Args([0 for i in folderPaths], False, False)
 
 #Rarities categories and color associated (can be modified adding/deleting) DONT USE (#000000)
 colors = {
@@ -25,7 +25,7 @@ percentages = [3.0, 6.5, 10.0, 17.0]
 #and any item with greater-equal than 17 will be considered as COMMON
 
 
-nfts = NftCreator(numberNFTs, folderPaths, testRarities, randomizedOutput)
+nfts = NftCreator(numberNFTs, folderPaths, testRarities, randomizedOutput, nftType)
 
 print()
 print('-------------------------------------------------------------------------')

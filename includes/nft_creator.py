@@ -12,11 +12,11 @@ class NftCreator:
     testRarities = False
     totalMetadata = []
     totalDNA = []
-    def __init__(self, numberNFTs, folder_paths, testRarities, randomizeOutput):
+    def __init__(self, numberNFTs, folder_paths, testRarities, randomizeOutput, nftType):
         self.testRarities = testRarities
         self.CreateOutputFile()
         self.attributes, self.orderedLayersPath = self.GetAttributesList()
-        self.items, self.itemsPath, self.itemsTombola, self.maxPossibilities = self.GetItemsList(self.orderedLayersPath,self.attributes)
+        self.items, self.itemsPath, self.itemsTombola, self.maxPossibilities = self.GetItemsList(self.attributes, self.orderedLayersPath)
         self.nftsQuantity = self.SetNftTotalQuantity(numberNFTs, self.maxPossibilities)
         self.jsonTemplate = self.GetJsonTemplate()
         for i in range(len(self.nftsQuantity)):
@@ -68,23 +68,23 @@ class NftCreator:
 
     #Creates the attributes list for our nfts and select the layer order that our nfts will use to create each nft
     def GetAttributesList(self):
-        print('Obtainig attributes list and order of layers...', end = ' ', flush = True)
+        print('Obtaining attributes list and order of layers...', end = ' ', flush = True)
         orderedLayersPath = natsorted(os.listdir(os.path.dirname(__file__) + '/../input/assets'))
         if len(orderedLayersPath) <= 1:
             print('ERROR. You need at least 2 differents attributes.')
             exit()
-        for file in orderedLayersPath:
-            if(file[0] == '.'):
-                orderedLayersPath.remove(file)
+        for folder in orderedLayersPath:
+            if(folder[0] == '.'):
+                orderedLayersPath.remove(folder)
         attributes = []
-        for file in orderedLayersPath:
-            file = file.replace('_',' ').split('-')
-            attributes.append(file[1].title())
+        for folder in orderedLayersPath:
+            folder = folder.replace('_',' ').split('-')
+            attributes.append(folder[1].title())
         print("Done.")
         return attributes, orderedLayersPath
 
 
-    def GetItemsList(self, attributesPath,attributes):
+    def GetItemsList(self, attributes, attributesPath):
         items = []
         itemsPath = []
         itemsTombola = []
