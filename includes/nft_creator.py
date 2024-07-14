@@ -7,12 +7,14 @@ import shutil
 import copy
 class NftCreator:
     nftsCreatedCounter = 0
+    nftType = []
     nftsUniques = []
     nfts = []
     testRarities = False
     totalMetadata = []
     totalDNA = []
     def __init__(self, numberNFTs, folder_paths, testRarities, randomizeOutput, nftType):
+        self.nftType = nftType
         self.testRarities = testRarities
         self.CreateOutputFile()
         self.attributes, self.orderedLayersPath = self.GetAttributesList()
@@ -69,7 +71,13 @@ class NftCreator:
     #Creates the attributes list for our nfts and select the layer order that our nfts will use to create each nft
     def GetAttributesList(self):
         print('Obtaining attributes list and order of layers...', end = ' ', flush = True)
-        orderedLayersPath = natsorted(os.listdir(os.path.dirname(__file__) + '/../input/assets'))
+        # orderedLayersPath = natsorted(os.listdir(os.path.dirname(__file__) + '/../input/assets'))
+        if 'man' in self.nftType:
+            orderedLayersPath = natsorted(os.listdir(os.path.dirname(__file__) + '/../input/assets/Man'))
+        if 'female' in self.nftType:
+            orderedLayersPath = natsorted(os.listdir(os.path.dirname(__file__) + '/../input/assets/Female'))
+        
+        print('HERE', orderedLayersPath)
         if len(orderedLayersPath) <= 1:
             print('ERROR. You need at least 2 differents attributes.')
             exit()
@@ -105,15 +113,20 @@ class NftCreator:
 
     def GetItemsPerAttribute(self, attributePath, attribute):
         print('Obtaining', attribute,'items and creating the tombola...', end = ' ', flush = True)
-        files = natsorted(os.listdir(os.path.dirname(__file__) + '/../input/assets/' + attributePath))
+        if 'man' in self.nftType:
+            files = natsorted(os.listdir(os.path.dirname(__file__) + '/../input/assets/Man/' + attributePath))
+        if 'female' in self.nftType:
+            files = natsorted(os.listdir(os.path.dirname(__file__) + '/../input/assets/Female/' + attributePath))
+
         itemTombola = [0]
         item = []
         itemPath = files
         for file in files:
             if(file[0] == '.'):
                 continue
-            file = file.split('-')
-            item.append(file[1].replace('.png', '').replace('_', ' ').title())
+
+            # file = file.split('-')
+            item.append(file.replace('.png', '').title())
             itemTombola.append(itemTombola[-1] + int(file[0]))
         print('Done.')
         return item, itemPath, itemTombola
