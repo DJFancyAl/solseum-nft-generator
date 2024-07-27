@@ -1,3 +1,4 @@
+import math
 from .nft import Nft
 from natsort import natsorted
 import os
@@ -5,6 +6,8 @@ import json
 import numpy as np
 import shutil
 import copy
+import yaml
+
 class NftCreator:
     nftsCreatedCounter = 0
     nftType = []
@@ -13,7 +16,12 @@ class NftCreator:
     testRarities = False
     totalMetadata = []
     totalDNA = []
+    config = ''
+
     def __init__(self, numberNFTs, folder_paths, testRarities, randomizeOutput, nftType):
+        with open("./includes/config.yaml", 'r') as file:
+            self.config = yaml.safe_load(file)
+        
         self.nftType = nftType
         self.testRarities = testRarities
         self.CreateOutputFile()
@@ -77,7 +85,6 @@ class NftCreator:
         if 'female' in self.nftType:
             orderedLayersPath = natsorted(os.listdir(os.path.dirname(__file__) + '/../input/assets/Female'))
         
-        print('HERE', orderedLayersPath)
         if len(orderedLayersPath) <= 1:
             print('ERROR. You need at least 2 differents attributes.')
             exit()
@@ -121,14 +128,13 @@ class NftCreator:
         itemTombola = [0]
         item = []
         itemPath = files
+        avgTombola = math.floor(100/len(files))
         for file in files:
             if(file[0] == '.'):
                 continue
 
-            # file = file.split('-')
             item.append(file.replace('.png', '').title())
-            itemTombola.append(itemTombola[-1] + int(file[0]))
-        print('Done.')
+            itemTombola.append(itemTombola[-1] + avgTombola)
         return item, itemPath, itemTombola
 
     def SetNftTotalQuantity(self, numberNFTs, maxPossibilities):
@@ -162,6 +168,7 @@ class NftCreator:
             while True:
                 hasDifferentBackground  = False
                 nftDNA = []
+                potential_conflict = ''
                 for i in range(len(attributes)):
                     randomUniformSelector = np.random.randint(0,itemsTombola[i][-1])
                     l = 0
@@ -169,6 +176,18 @@ class NftCreator:
                     while l <= r:
                         mid = l + int(((r - l) / 2))
                         if itemsTombola[i][mid] <= randomUniformSelector and itemsTombola[i][mid+1] > randomUniformSelector:
+                            if potential_conflict:
+                                isConflicting = self.Check_Is_Conflicting(potential_conflict, itemsPath, i, mid)
+                                while isConflicting:
+                                    mid += 1
+                                    isConflicting = self.Check_Is_Conflicting(potential_conflict, itemsPath, i, mid)
+                            
+                            conflict = self.Check_Conflicts(itemsPath, i, mid)
+
+                            if conflict:
+                                potential_conflict = conflict
+
+
                             nftDNA.append(mid)
                             break
                         elif itemsTombola[i][mid] <= randomUniformSelector and itemsTombola[i][mid+1] <= randomUniformSelector:
@@ -185,6 +204,7 @@ class NftCreator:
             self.nftsUniques.append(nftDNA)
             nftsThisRun.append(nftDNA)
         print('Done.')
+
         nftsCreated = []
         for dna in nftsThisRun:
             nftAttributes = []
@@ -203,7 +223,7 @@ class NftCreator:
             nftName = nftMetadata['name']
             nftMetadata['attributes'] = nftAttributes
             nftMetadata['name'] = nftName
-            nft = Nft(nftsCounterThisRun, nftMetadata['name'], rawAttributes, filteredAttributes,nftMetadata, nftPaths, orderedLayersPath, attributes_count, folder_path)
+            nft = Nft(nftsCounterThisRun, nftMetadata['name'], rawAttributes, filteredAttributes,nftMetadata, nftPaths, orderedLayersPath, attributes_count, folder_path, self.nftType)
             nftsCreated.append(nft)
             self.nftsCreatedCounter += 1
             nftsCounterThisRun += 1
@@ -269,3 +289,33 @@ class NftCreator:
         with open(os.path.dirname(__file__) + '/../output/nfts.json', 'w') as jsonFile:
             json.dump(jsonText, jsonFile, indent = 4)
         print("Done.")
+
+    def Check_Conflicts(self, itemsPath, index, mid):
+        clashes = []
+
+        if 'man' in self.nftType:
+            clashes = self.config['Clashes']['manClashes']
+        elif 'female' in self.nftType:
+            clashes = self.config['Clashes']['manClashes']
+
+        potentialItems = itemsPath[index]
+        if potentialItems[mid] in clashes.keys():
+            return potentialItems[mid]
+
+        return None
+
+    def Check_Is_Conflicting(self, potential_conflict, itemsPath, index, mid):
+        clashes = []
+
+        if 'man' in self.nftType:
+            clashes = self.config['Clashes']['manClashes']
+        elif 'female' in self.nftType:
+            clashes = self.config['Clashes']['manClashes']
+
+        potentialItems = itemsPath[index]
+        item = potentialItems[mid]
+
+        if item in clashes[potential_conflict]:
+            return True
+
+        return False
