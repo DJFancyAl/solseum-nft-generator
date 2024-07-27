@@ -169,6 +169,7 @@ class NftCreator:
                 hasDifferentBackground  = False
                 nftDNA = []
                 potential_conflict = ''
+                bgIndex = ''
                 for i in range(len(attributes)):
                     randomUniformSelector = np.random.randint(0,itemsTombola[i][-1])
                     l = 0
@@ -176,6 +177,7 @@ class NftCreator:
                     while l <= r:
                         mid = l + int(((r - l) / 2))
                         if itemsTombola[i][mid] <= randomUniformSelector and itemsTombola[i][mid+1] > randomUniformSelector:
+                            # Checks for Conflicts                          
                             if potential_conflict:
                                 isConflicting = self.Check_Is_Conflicting(potential_conflict, itemsPath, i, mid)
                                 while isConflicting:
@@ -187,6 +189,16 @@ class NftCreator:
                             if conflict:
                                 potential_conflict = conflict
 
+                            # Checks for Combinations
+                            if i == 0:
+                                potentialItems = itemsPath[i]
+                                bgIndex = potentialItems[mid]
+
+                            invalid_combination = self.Check_Combination(itemsPath, i, mid, bgIndex)
+                            if invalid_combination:
+                                while invalid_combination:
+                                    mid += 1
+                                    invalid_combination = self.Check_Combination(itemsPath, i, mid, bgIndex)
 
                             nftDNA.append(mid)
                             break
@@ -317,5 +329,15 @@ class NftCreator:
 
         if item in clashes[potential_conflict]:
             return True
+
+        return False
+
+    def Check_Combination(self, itemsPath, index, mid, bgIndex):
+        combinations = self.config['Combinations']
+
+        potentialItems = itemsPath[index]
+        if potentialItems[mid] in combinations.keys():
+            if bgIndex not in combinations[potentialItems[mid]]:
+                return True
 
         return False

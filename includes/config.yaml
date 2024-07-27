@@ -21,6 +21,17 @@ Clashes:
       "3D.png": "Blue Flame.png",
       "Wires.png": "Blue Flame.png",
     }
+Combinations:
+  {
+    "Glass.png":
+      [
+        "Space Mars.png",
+        "Space Mercury.png",
+        "Space Moonbase.png",
+        "Space Neptune.png",
+        "Space Venus.png",
+      ],
+  }
 ID Values:
   femaleNormalIds:
     [
