@@ -32,6 +32,7 @@ Combinations:
         "Space Venus.png",
       ],
   }
+Before_Background: ["Einstein B.png", "Viking B.png", "Fro B.png"]
 ID Values:
   femaleNormalIds:
     [
