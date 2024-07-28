@@ -228,7 +228,8 @@ class NftCreator:
                 if items[i][dna[i]] != "Notrait":
                     attributes_count += 1
                     filteredAttributes.append({attributes[i]: items[i][dna[i]]})
-                    nftAttributes.append({"trait_type": attributes[i], "value":items[i][dna[i]]})
+                    attribute = self.Check_Special(items[i][dna[i]])
+                    nftAttributes.append({"trait_type": attributes[i], "value":attribute})
                 rawAttributes.append([attributes[i],items[i][dna[i]]])
                 nftPaths.append(itemsPath[i][dna[i]])
             nftMetadata = dict(jsonTemplate)
@@ -341,3 +342,10 @@ class NftCreator:
                 return True
 
         return False
+
+    def Check_Special(self, attribute):
+        specials = ['Einstein A', 'Einstein B', 'Viking A', 'Viking B', 'Fro A', 'Fro B']
+        if attribute in specials:
+            attribute = attribute[:-2]
+
+        return attribute
