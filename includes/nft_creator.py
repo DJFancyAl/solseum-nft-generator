@@ -258,6 +258,11 @@ class NftCreator:
             nftsCreated.append(nft)
             self.nftsCreatedCounter += 1
             nftsCounterThisRun += 1
+
+        if 'extras' in self.nftType:
+            newPotentialIds = self.potentialIds[nftsCounterThisRun:]
+            self.Update_Potentials(newPotentialIds)
+
         if not self.testRarities:
             print("Created", nftsCounterThisRun, "uniques NFTs for", folder_path)
         return nftsCreated
@@ -383,8 +388,23 @@ class NftCreator:
             return self.config['ID Values']['manSaturnIds']
         elif 'female' in self.nftType and 'saturn' in self.nftType:
             return self.config['ID Values']['femaleSaturnIds']
+        elif 'extras' in self.nftType:
+            return self.config['PotentialNumbers']
         elif 'man' in self.nftType:
             return self.config['ID Values']['manNormalIds']
         elif 'female' in self.nftType:
             return self.config['ID Values']['femaleNormalIds']
-        return []
+        else:
+            return []
+        
+    def Update_Potentials(self, remaining):
+        newconfig = self.config
+        newconfig['PotentialNumbers'] = remaining
+
+        class CustomDumper(yaml.Dumper):
+            def increase_indent(self, flow=False, indentless=False):
+                return super(CustomDumper, self).increase_indent(flow=True, indentless=indentless)
+            
+        with open('./includes/config.yaml', 'w') as f:
+            yaml.dump(newconfig, f, Dumper=CustomDumper, default_flow_style=None)
+        

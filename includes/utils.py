@@ -33,7 +33,7 @@ def Args(numberNFTs, testRarities, randomizeOutput):
         print('Please select either "man or female" when creating NFTs(-m or -f).\n')
         print('*************')
         sys.exit(1)
-    elif opts.extras and (not opts.female or not opts.man):
+    elif opts.extras and (not opts.female and not opts.man):
         print('*************\n')
         print('Please select either "man or female" when creating extra NFTs(-m or -f).\n')
         print('*************')
