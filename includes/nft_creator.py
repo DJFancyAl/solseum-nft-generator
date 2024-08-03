@@ -17,12 +17,14 @@ class NftCreator:
     totalMetadata = []
     totalDNA = []
     config = ''
+    potentialIds = []
 
     def __init__(self, numberNFTs, folder_paths, testRarities, randomizeOutput, nftType):
         with open("./includes/config.yaml", 'r') as file:
             self.config = yaml.safe_load(file)
         
         self.nftType = nftType
+        self.potentialIds = self.Get_Potential_Ids()
         self.testRarities = testRarities
         self.CreateOutputFile()
         self.attributes, self.orderedLayersPath = self.GetAttributesList()
@@ -177,6 +179,11 @@ class NftCreator:
                     while l <= r:
                         mid = l + int(((r - l) / 2))
                         if itemsTombola[i][mid] <= randomUniformSelector and itemsTombola[i][mid+1] > randomUniformSelector:
+                            # Checks for Saturn or Moon
+                            isSaturnMoon = self.Check_Saturn_Moon(itemsPath, i , mid)
+                            if isSaturnMoon:
+                                mid -= 1
+
                             # Checks for Conflicts                          
                             if potential_conflict:
                                 isConflicting = self.Check_Is_Conflicting(potential_conflict, itemsPath, i, mid)
@@ -199,6 +206,17 @@ class NftCreator:
                                 while invalid_combination:
                                     mid += 1
                                     invalid_combination = self.Check_Combination(itemsPath, i, mid, bgIndex)
+
+                            # Sets Saturn Rings
+                            if i == 7 and 'saturn' in self.nftType and 'man' in self.nftType:
+                                mid = 22
+
+                            if i == 7 and 'saturn' in self.nftType and 'female' in self.nftType:
+                                mid = 13
+
+                            # Sets Moonbrain
+                            if i == 7 and 'brain' in self.nftType and 'man' in self.nftType:
+                                mid = 20
 
                             nftDNA.append(mid)
                             break
@@ -236,7 +254,7 @@ class NftCreator:
             nftName = nftMetadata['name']
             nftMetadata['attributes'] = nftAttributes
             nftMetadata['name'] = nftName
-            nft = Nft(nftsCounterThisRun, nftMetadata['name'], rawAttributes, filteredAttributes,nftMetadata, nftPaths, orderedLayersPath, attributes_count, folder_path, self.nftType)
+            nft = Nft(self.potentialIds[nftsCounterThisRun], nftMetadata['name'], rawAttributes, filteredAttributes,nftMetadata, nftPaths, orderedLayersPath, attributes_count, folder_path, self.nftType)
             nftsCreated.append(nft)
             self.nftsCreatedCounter += 1
             nftsCounterThisRun += 1
@@ -349,3 +367,24 @@ class NftCreator:
             attribute = attribute[:-2]
 
         return attribute
+    
+    def Check_Saturn_Moon(self, itemsPath, index, mid):
+        if index == 7 and ('man' in self.nftType or 'female in self.nftType'):
+            saturnMoon = ['Saturn Rings.png', 'Moonbrain.png']
+            potentialItems = itemsPath[index]
+            return potentialItems[mid] in saturnMoon
+            
+        return False
+    
+    def Get_Potential_Ids(self):
+        if 'brain' in self.nftType:
+            return self.config['ID Values']['manMoonIds']
+        elif 'man' in self.nftType and 'saturn' in self.nftType:
+            return self.config['ID Values']['manSaturnIds']
+        elif 'female' in self.nftType and 'saturn' in self.nftType:
+            return self.config['ID Values']['femaleSaturnIds']
+        elif 'man' in self.nftType:
+            return self.config['ID Values']['manNormalIds']
+        elif 'female' in self.nftType:
+            return self.config['ID Values']['femaleNormalIds']
+        return []

@@ -43,8 +43,8 @@ class Nft:
         if need_reorder:
             layer_to_move = self.layers.pop(7)
             dna_to_move = self.dnaPaths.pop(7)
-            self.layers.insert(0, layer_to_move)
-            self.dnaPaths.insert(0, dna_to_move)
+            self.layers.insert(1, layer_to_move)
+            self.dnaPaths.insert(1, dna_to_move)
 
         if need_reorder_eyes:
             layer_to_move = self.layers.pop(7)
@@ -64,8 +64,8 @@ class Nft:
         baseLayer.save(os.path.dirname(__file__) + '/../output/nfts/' + self.folder_path + '/' + str(self.number) + '.png', quality = 100)
         
         if need_reorder:
-            layer_to_move = self.layers.pop(0)
-            dna_to_move = self.dnaPaths.pop(0)
+            layer_to_move = self.layers.pop(1)
+            dna_to_move = self.dnaPaths.pop(1)
             self.layers.append(layer_to_move)
             self.dnaPaths.append(dna_to_move)
 

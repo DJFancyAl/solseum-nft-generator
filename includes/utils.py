@@ -11,20 +11,42 @@ def Args(numberNFTs, testRarities, randomizeOutput):
     parser.add_option('-r', '--randomize-output', dest = 'randomize_output', help = 'Randomize the output of the nfts (f.e. the 0.json can be the NFT #123) [default = 0]', metavar = 'BOOL (0 or 1)', type = 'int')
     parser.add_option('-m', '--man', action="store_true", help = 'Creates type "Man" NFTs.')
     parser.add_option('-f', '--female', action="store_true", help = 'Creates type "Female" NFTs.')
+    parser.add_option('-s', '--saturn', action="store_true", help = 'Creates type "Saturn" NFTs.')
     parser.add_option('-e', '--extras', action="store_true", help = 'Creates type "Extras" NFTs.')
+    parser.add_option('-b', '--brain', action="store_true", help = 'Creates type "Moonbrain" NFTs.')
     
     opts, args = parser.parse_args()
 
     nftType = []
-    if not opts.man and not opts.female and not opts.extras:
+    if not opts.man and not opts.female and not opts.saturn and not opts.brain and not opts.extras:
         print('*************\n')
-        print('Please select "man or female" NFTs (-m or -f).\n')
+        print('Please select "man, female, saturn, or extra" NFTs (-m, -f, -s, or -e).\n')
         print('*************')
         sys.exit(1)
+    elif opts.saturn and not opts.man and not opts.female:
+        print('*************\n')
+        print('Please select "man or female" when creating Saturn NFTs(-m, -f).\n')
+        print('*************')
+        sys.exit(1)
+    elif opts.man and opts.female:
+        print('*************\n')
+        print('Please select either "man or female" when creating NFTs(-m or -f).\n')
+        print('*************')
+        sys.exit(1)
+    elif opts.extras and (not opts.female or not opts.man):
+        print('*************\n')
+        print('Please select either "man or female" when creating extra NFTs(-m or -f).\n')
+        print('*************')
+        sys.exit(1)
+
     if opts.man:
         nftType.append('man')
     if opts.female:
         nftType.append('female')
+    if opts.saturn:
+        nftType.append('saturn')
+    if opts.brain:
+        nftType = ['man', 'brain']
     if opts.extras:
         nftType.append('extras')
 
