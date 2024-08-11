@@ -431,4 +431,6 @@ Using the "extras" feature is a multiple step process to ensure random generatio
 
 2. Next you'll create "man"nfts while using the `-e` flag. For example: `py main.py -m -e -p 1500`
 
-3. Lastly, you'll create the remaining "female" nfts with the remaining about. For example: `py main.py -f -e -p 1500`
+3. Copy the created NFTs from the "output" directory to a different directory (otherwise they will be overwritten).
+
+4. Lastly, you'll create the remaining "female" nfts with the remaining about. For example: `py main.py -f -e -p 1500`

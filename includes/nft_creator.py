@@ -407,4 +407,3 @@ class NftCreator:
             
         with open('./includes/config.yaml', 'w') as f:
             yaml.dump(newconfig, f, Dumper=CustomDumper, default_flow_style=None)
-        
