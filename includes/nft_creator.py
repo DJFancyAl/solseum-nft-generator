@@ -218,6 +218,9 @@ class NftCreator:
                             if i == 7 and 'brain' in self.nftType and 'man' in self.nftType:
                                 mid = 20
 
+                            if i == 7 and 'brain' in self.nftType and 'female' in self.nftType:
+                                mid = 12
+
                             nftDNA.append(mid)
                             break
                         elif itemsTombola[i][mid] <= randomUniformSelector and itemsTombola[i][mid+1] <= randomUniformSelector:
@@ -374,7 +377,7 @@ class NftCreator:
         return attribute
     
     def Check_Saturn_Moon(self, itemsPath, index, mid):
-        if index == 7 and ('man' in self.nftType or 'female in self.nftType'):
+        if index == 7 and ('man' in self.nftType or 'female' in self.nftType):
             saturnMoon = ['Saturn Rings.png', 'Moonbrain.png']
             potentialItems = itemsPath[index]
             return potentialItems[mid] in saturnMoon
@@ -382,8 +385,10 @@ class NftCreator:
         return False
     
     def Get_Potential_Ids(self):
-        if 'brain' in self.nftType:
+        if 'man' in self.nftType and 'brain' in self.nftType:
             return self.config['ID Values']['manMoonIds']
+        elif 'female' in self.nftType and 'brain' in self.nftType:
+            return self.config['ID Values']['femaleMoonIds']
         elif 'man' in self.nftType and 'saturn' in self.nftType:
             return self.config['ID Values']['manSaturnIds']
         elif 'female' in self.nftType and 'saturn' in self.nftType:

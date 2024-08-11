@@ -412,7 +412,7 @@ There are several new flags which may be used when creating nfts
 - "-m" for making man type nfts
 - "-f" for making female type nfts
 - "-s" for making SaturnRing type nfts (may be used in combination with -m or -f)
-- "-b" for making MoonBrain type nfts (may only be used solo or with -m)
+- "-b" for making MoonBrain type nfts (may be used in combination with -m or -f)
 - "-e" for making extra nfts (must be used in combination with -m or -f)
 
 ### Creating Different Types
@@ -421,7 +421,7 @@ There are several new flags which may be used when creating nfts
 - To create normal female nfts run a command similar to this `py main.py -f -p 1200`
 - To create man nfts with SaturnRings run a command similar to this `py main.py -m -s -p 900`
 - To create female nfts with SaturnRings run a command similar to this `py main.py -f -s -p 900`
-- To create Moonbrain nfts (man only) run a command similar to this `py main.py -b -p 800`
+- To create Moonbrain nfts run a command similar to this `py main.py -m -b -p 800`
 
 ### Creating Extra NFTS
 

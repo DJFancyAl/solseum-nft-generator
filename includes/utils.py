@@ -46,7 +46,7 @@ def Args(numberNFTs, testRarities, randomizeOutput):
     if opts.saturn:
         nftType.append('saturn')
     if opts.brain:
-        nftType = ['man', 'brain']
+        nftType.append('brain')
     if opts.extras:
         nftType.append('extras')
 
