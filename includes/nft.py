@@ -30,8 +30,12 @@ class Nft:
         self.nft_type = nft_type
 
     def CreateImage(self):
+        print('^^^^^^^^^^^')
+        print(self.number)
+        print(self.dnaPaths)
         subdirectory = ''
         need_reorder = False
+        need_reverse_reorder = self.Check_Reverse_Reorder()
         need_reorder_eyes = False
 
         self.Check_Black()
@@ -66,7 +70,21 @@ class Nft:
         frontLayer = frontLayer.convert('RGBA')
         baseLayer = Image.alpha_composite(baseLayer, frontLayer)
 
-        for i in range(1, len(self.layers)):              
+        for i in range(1, len(self.layers)):  
+            if need_reverse_reorder and i == 1:
+                if 'Einstein A.png' in self.dnaPaths:
+                    frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '7-Head/Einstein B.png')
+                    frontLayer = frontLayer.convert('RGBA')
+                    baseLayer = Image.alpha_composite(baseLayer, frontLayer)
+                elif 'Viking A.png' in self.dnaPaths:
+                    frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '7-Head/Viking B.png')
+                    frontLayer = frontLayer.convert('RGBA')
+                    baseLayer = Image.alpha_composite(baseLayer, frontLayer)
+                elif 'Fro A.png' in self.dnaPaths:
+                    frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '7-Head/Fro B.png')
+                    frontLayer = frontLayer.convert('RGBA')
+                    baseLayer = Image.alpha_composite(baseLayer, frontLayer)
+                        
             frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + self.layers[i] + '/' + self.dnaPaths[i])
             frontLayer = frontLayer.convert('RGBA')
             baseLayer = Image.alpha_composite(baseLayer, frontLayer)
@@ -113,6 +131,12 @@ class Nft:
 
     def Check_Reorder(self):
         if 'Einstein B.png' in self.dnaPaths or 'Viking B.png' in self.dnaPaths or 'Fro B.png' in self.dnaPaths:
+            return True
+        else:
+            return False
+
+    def Check_Reverse_Reorder(self):
+        if 'Einstein A.png' in self.dnaPaths or 'Viking A.png' in self.dnaPaths or 'Fro A.png' in self.dnaPaths:
             return True
         else:
             return False
