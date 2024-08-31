@@ -1,4 +1,5 @@
 import math
+import sys
 from .nft import Nft
 from natsort import natsorted
 import os
@@ -253,11 +254,12 @@ class NftCreator:
                     nftAttributes.append({"trait_type": attributes[i], "value":attribute})
                 rawAttributes.append([attributes[i],items[i][dna[i]]])
                 nftPaths.append(itemsPath[i][dna[i]])
+
             nftMetadata = dict(jsonTemplate)
             nftName = nftMetadata['name']
             nftMetadata['attributes'] = nftAttributes
             nftMetadata['name'] = nftName
-            nft = Nft(self.potentialIds[nftsCounterThisRun], nftMetadata['name'], rawAttributes, filteredAttributes,nftMetadata, nftPaths, orderedLayersPath, attributes_count, folder_path, self.nftType)
+            nft = Nft(self.potentialIds[nftsCounterThisRun], nftMetadata['name'], rawAttributes, filteredAttributes, nftMetadata, nftPaths, orderedLayersPath, attributes_count, folder_path, self.nftType)
             nftsCreated.append(nft)
             self.nftsCreatedCounter += 1
             nftsCounterThisRun += 1
@@ -268,6 +270,7 @@ class NftCreator:
 
         if not self.testRarities:
             print("Created", nftsCounterThisRun, "uniques NFTs for", folder_path)
+        
         return nftsCreated
 
     def ShuffleNfts(self, nftQuantity):
@@ -370,7 +373,7 @@ class NftCreator:
         return False
 
     def Check_Special(self, attribute):
-        specials = ['Einstein A', 'Einstein B', 'Viking A', 'Viking B', 'Fro A', 'Fro B']
+        specials = ['Einstein A', 'Einstein B', 'Viking Grey A', 'Viking Grey B', 'Viking Brown A', 'Viking Brown B', 'Fro A', 'Fro B']
         if attribute in specials:
             attribute = attribute[:-2]
 

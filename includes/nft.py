@@ -30,9 +30,7 @@ class Nft:
         self.nft_type = nft_type
 
     def CreateImage(self):
-        print('^^^^^^^^^^^')
-        print(self.number)
-        print(self.dnaPaths)
+        self.layers = ['0-Background', '1-Neck', '2-Clothing', '3-Skin', '4-Skull', '5-Face Plate', '6-Eyes', '7-Head']
         subdirectory = ''
         need_reorder = False
         need_reverse_reorder = self.Check_Reverse_Reorder()
@@ -60,7 +58,6 @@ class Nft:
             dna_to_move = self.dnaPaths.pop(7)
             self.layers.insert(6, layer_to_move)
             self.dnaPaths.insert(6, dna_to_move)
-
             
         baseLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + self.layers[0] + '/' + self.dnaPaths[0])
         baseLayer = baseLayer.convert('RGBA')
@@ -70,21 +67,26 @@ class Nft:
         frontLayer = frontLayer.convert('RGBA')
         baseLayer = Image.alpha_composite(baseLayer, frontLayer)
 
-        for i in range(1, len(self.layers)):  
+        for i in range(1, len(self.layers)):
+
             if need_reverse_reorder and i == 1:
                 if 'Einstein A.png' in self.dnaPaths:
                     frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '7-Head/Einstein B.png')
                     frontLayer = frontLayer.convert('RGBA')
                     baseLayer = Image.alpha_composite(baseLayer, frontLayer)
-                elif 'Viking A.png' in self.dnaPaths:
-                    frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '7-Head/Viking B.png')
+                elif 'Viking Grey A.png' in self.dnaPaths:
+                    frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '7-Head/Viking Grey B.png')
+                    frontLayer = frontLayer.convert('RGBA')
+                    baseLayer = Image.alpha_composite(baseLayer, frontLayer)
+                elif 'Viking Brown A.png' in self.dnaPaths:
+                    frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '7-Head/Viking Brown B.png')
                     frontLayer = frontLayer.convert('RGBA')
                     baseLayer = Image.alpha_composite(baseLayer, frontLayer)
                 elif 'Fro A.png' in self.dnaPaths:
                     frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '7-Head/Fro B.png')
                     frontLayer = frontLayer.convert('RGBA')
                     baseLayer = Image.alpha_composite(baseLayer, frontLayer)
-                        
+         
             frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + self.layers[i] + '/' + self.dnaPaths[i])
             frontLayer = frontLayer.convert('RGBA')
             baseLayer = Image.alpha_composite(baseLayer, frontLayer)
@@ -95,8 +97,12 @@ class Nft:
                 frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '7-Head/Einstein A.png')
                 frontLayer = frontLayer.convert('RGBA')
                 baseLayer = Image.alpha_composite(baseLayer, frontLayer)
-            elif 'Viking B.png' in self.dnaPaths:
-                frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '7-Head/Viking A.png')
+            elif 'Viking Grey B.png' in self.dnaPaths:
+                frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '7-Head/Viking Grey A.png')
+                frontLayer = frontLayer.convert('RGBA')
+                baseLayer = Image.alpha_composite(baseLayer, frontLayer)
+            elif 'Viking Brown B.png' in self.dnaPaths:
+                frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '7-Head/Viking Brown A.png')
                 frontLayer = frontLayer.convert('RGBA')
                 baseLayer = Image.alpha_composite(baseLayer, frontLayer)
             elif 'Fro B.png' in self.dnaPaths:
@@ -130,13 +136,13 @@ class Nft:
             json.dump(self.metadata, jsonFile, indent = 4)
 
     def Check_Reorder(self):
-        if 'Einstein B.png' in self.dnaPaths or 'Viking B.png' in self.dnaPaths or 'Fro B.png' in self.dnaPaths:
+        if 'Einstein B.png' in self.dnaPaths or 'Viking Grey B.png' in self.dnaPaths or 'Viking Brown B.png' in self.dnaPaths or 'Fro B.png' in self.dnaPaths:
             return True
         else:
             return False
 
     def Check_Reverse_Reorder(self):
-        if 'Einstein A.png' in self.dnaPaths or 'Viking A.png' in self.dnaPaths or 'Fro A.png' in self.dnaPaths:
+        if 'Einstein A.png' in self.dnaPaths or 'Viking Grey A.png' in self.dnaPaths or 'Viking Brown A.png' in self.dnaPaths or 'Fro A.png' in self.dnaPaths:
             return True
         else:
             return False
@@ -148,7 +154,7 @@ class Nft:
             return False
 
     def Reorder_Eyes_Female(self):
-        if '3D.png' in self.dnaPaths or 'Glasses Pixel.png' in self.dnaPaths or 'Mohawk Violet.png' in self.dnaPaths or 'Viking Horns.png' in self.dnaPaths or 'Moonbrain.png' in self.dnaPaths:
+        if '3D.png' in self.dnaPaths or 'Glasses Pixel.png' in self.dnaPaths or 'Mohawk Violet.png' in self.dnaPaths or 'Groovy.png' in self.dnaPaths or 'Top Hat.png' in self.dnaPaths or 'Viking Horns.png' in self.dnaPaths or 'Moonbrain.png' in self.dnaPaths:
             return True
         else:
             return False
