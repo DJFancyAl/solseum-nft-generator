@@ -20,6 +20,14 @@ Clashes:
       Tribal Supernova Ivory.png: DROID
         Cap.png,
       Tribal White.png: DROID Cap.png,
+      Bones.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
+      Buzz.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
+      Cable Orb.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
+      Cables.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
+      Genie.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
+      Jet.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
+      Reactor.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
+      Rocket.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
     }
 Combinations:
   Glass.png:
