@@ -212,17 +212,17 @@ class NftCreator:
 
                             # Sets Saturn Rings
                             if i == 7 and 'saturn' in self.nftType and 'man' in self.nftType:
-                                mid = 22
+                                mid = 23
 
                             if i == 7 and 'saturn' in self.nftType and 'female' in self.nftType:
-                                mid = 13
+                                mid = 8
 
                             # Sets Moonbrain
                             if i == 7 and 'brain' in self.nftType and 'man' in self.nftType:
-                                mid = 20
+                                mid = 21
 
                             if i == 7 and 'brain' in self.nftType and 'female' in self.nftType:
-                                mid = 12
+                                mid = 5
 
                             nftDNA.append(mid)
                             break
