@@ -62,6 +62,11 @@ class Nft:
         baseLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + self.layers[0] + '/' + self.dnaPaths[0])
         baseLayer = baseLayer.convert('RGBA')
 
+        # Insert Shadows
+        frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '2-Clothing/' + shadowPath)
+        frontLayer = frontLayer.convert('RGBA')
+        baseLayer = Image.alpha_composite(baseLayer, frontLayer)
+
         for i in range(1, len(self.layers)):
             if need_reverse_reorder and i == 1:
                 if '3-Einstein A.png' in self.dnaPaths:
@@ -80,8 +85,7 @@ class Nft:
                     frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '7-Head/4-Fro B.png')
                     frontLayer = frontLayer.convert('RGBA')
                     baseLayer = Image.alpha_composite(baseLayer, frontLayer)
-
-            if i==1:
+                
                 # Insert Shadows
                 frontLayer = Image.open(os.path.dirname(__file__) + '/../input/assets/' + subdirectory + '2-Clothing/' + shadowPath)
                 frontLayer = frontLayer.convert('RGBA')
