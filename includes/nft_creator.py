@@ -131,13 +131,15 @@ class NftCreator:
         itemTombola = [0]
         item = []
         itemPath = files
-        avgTombola = math.floor(100/len(files))
         for file in files:
             if(file[0] == '.'):
                 continue
-
-            item.append(file.replace('.png', '').title())
-            itemTombola.append(itemTombola[-1] + avgTombola)
+            file = file.split('-')
+            item.append(file[1].replace('.png', '').replace('_', ' ').title())
+            # item.append(file.replace('.png', '').title())
+            print('ITEM', item)
+            print('INT', file[0])
+            itemTombola.append(itemTombola[-1] + float(file[0]))
         return item, itemPath, itemTombola
 
     def SetNftTotalQuantity(self, numberNFTs, maxPossibilities):
@@ -380,8 +382,13 @@ class NftCreator:
         return attribute
     
     def Check_Saturn_Moon(self, itemsPath, index, mid):
-        if index == 7 and ('man' in self.nftType or 'female' in self.nftType):
-            saturnMoon = ['Saturn Rings.png', 'Moonbrain.png']
+        if index == 7 and 'man' in self.nftType:
+            saturnMoon = ['5-Saturn Rings.png', '4-Moonbrain.png']
+            potentialItems = itemsPath[index]
+            return potentialItems[mid] in saturnMoon
+        
+        if index == 7 and 'female' in self.nftType:
+            saturnMoon = ['5-Saturn Rings.png', '3-Moonbrain.png']
             potentialItems = itemsPath[index]
             return potentialItems[mid] in saturnMoon
             

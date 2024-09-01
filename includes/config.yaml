@@ -1,42 +1,41 @@
 Clashes:
   femaleClashes:
-    { 3D.png: Blue Flame.png, Third eye.png: Blue Flame.png, Wires.png: Blue
-        Flame.png }
+    {
+      5-3D.png: 3-Blue Flame.png, 
+      10-Third eye.png: 3-Blue Flame.png,
+      5-Wires.png: 3-Blue Flame.png
+      }
   manClashes:
     {
-      Beard Grey.png: Headphones.png,
-      Beard White.png: Headphones.png,
-      Flight Jacket.png: Bones.png,
-      Genie.png: Flight Jacket.png,
-      Glasses Witch.png: DROID
-        Cap.png,
-      Goggles Visor.png: DROID Cap.png,
-      Googles Data.png: DROID Cap.png,
-      Laser.png: Cowboy Voodoo.png,
-      Quasar.png: DROID Cap.png,
-      Quaser.png: Cowboy
-        Voodoo.png,
-      Tribal Supernova Gold.png: DROID Cap.png,
-      Tribal Supernova Ivory.png: DROID
-        Cap.png,
-      Tribal White.png: DROID Cap.png,
-      Bones.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
-      Buzz.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
-      Cable Orb.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
-      Cables.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
-      Genie.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
-      Jet.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
-      Reactor.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
-      Rocket.png: [Viking Grey A.png, Viking Grey B.png, Viking Brown A.png, Viking Brown B.png],
+      3.5-Beard Grey.png: 6-Headphones.png,
+      3.5-Beard White.png: 6-Headphones.png,
+      2-Flight Jacket.png: 2-Bones.png,
+      6-Genie.png: 2-Flight Jacket.png,
+      4-Glasses Witch.png: 6-DROID Cap.png,
+      6-Goggles Visor.png: 6-DROID Cap.png,
+      6-Googles Data.png: 6-DROID Cap.png,
+      1-Laser.png: 3-Cowboy Voodoo.png,
+      2-Quasar.png: [6-DROID Cap.png, 3-Cowboy Voodoo.png],
+      1-Tribal Supernova Gold.png: 6-DROID Cap.png,
+      2-Tribal Supernova Ivory.png: 6-DROID Cap.png,
+      3-Tribal White.png: 6-DROID Cap.png,
+      2-Bones.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
+      6-Buzz.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
+      2-Cable Orb.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
+      6-Cables.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
+      6-Genie.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
+      2-Jet.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
+      2-Reactor.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
+      2-Rocket.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
     }
 Combinations:
-  Glass.png:
+  4-Glass.png:
     [
-      Space Mars.png,
-      Space Mercury.png,
-      Space Moonbase.png,
-      Space Neptune.png,
-      Space Venus.png,
+      2-Space Mars.png,
+      2-Space Mercury.png,
+      2-Space Moonbase.png,
+      2-Space Neptune.png,
+      2-Space Venus.png,
     ]
 ID Values:
   femaleNormalIds:
