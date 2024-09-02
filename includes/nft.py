@@ -134,7 +134,7 @@ class Nft:
             # The following two lines make this project compatible with new features in CMv2 (Candy Machine version 2)
             # The JSON metadata new requirement is named image files.  Code will work only with png files.
             # Change Date: 01/19/2022 - ck256-2000
-            self.metadata['name'] = f"DROID #{self.number}"
+            self.metadata['name'] = f"Droid Capital #{self.number}"
             self.metadata['image'] = str(self.number) + '.png'
             self.metadata['properties']['files'][0] = {"uri" : str(self.number) + ".png", "type":"image/png"}
             json.dump(self.metadata, jsonFile, indent = 4)
