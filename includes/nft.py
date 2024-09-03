@@ -46,6 +46,8 @@ class Nft:
         elif 'female' in self.nft_type:
             subdirectory = 'Female/'
             need_reorder_eyes = self.Reorder_Eyes_Female()
+            if '5-3D.png' in self.dnaPaths and '4-Top Hat.png' in self.dnaPaths:
+                need_reorder_eyes = False
 
         if need_reorder:
             layer_to_move = self.layers.pop(7)
@@ -158,7 +160,7 @@ class Nft:
             return False
 
     def Reorder_Eyes_Female(self):
-        if '5-3D.png' in self.dnaPaths or '2-Glasses Pixel.png' in self.dnaPaths or '8-Mohawk Violet.png' in self.dnaPaths or '8-Groovy.png' in self.dnaPaths or '4-Top Hat.png' in self.dnaPaths or '8-Viking Horns.png' in self.dnaPaths or '3-Moonbrain.png' in self.dnaPaths:
+        if '5-3D.png' in self.dnaPaths or '2-Glasses Pixel.png' in self.dnaPaths or '8-Mohawk Violet.png' in self.dnaPaths or '8-Groovy.png' in self.dnaPaths or '8-Viking Horns.png' in self.dnaPaths or '3-Moonbrain.png' in self.dnaPaths:
             return True
         else:
             return False

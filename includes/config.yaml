@@ -1,15 +1,15 @@
 Clashes:
   femaleClashes:
     {
-      5-3D.png: 3-Blue Flame.png, 
+      5-3D.png: 3-Blue Flame.png,
       10-Third eye.png: 3-Blue Flame.png,
-      5-Wires.png: 3-Blue Flame.png
-      }
+      5-Wires.png: 3-Blue Flame.png,
+    }
   manClashes:
     {
       3.5-Beard Grey.png: 6-Headphones.png,
       3.5-Beard White.png: 6-Headphones.png,
-      2-Flight Jacket.png: 2-Bones.png,
+      3-Flight Jacket.png: 3-Bones.png,
       6-Genie.png: 2-Flight Jacket.png,
       4-Glasses Witch.png: 6-DROID Cap.png,
       6-Goggles Visor.png: 6-DROID Cap.png,
@@ -19,14 +19,68 @@ Clashes:
       1-Tribal Supernova Gold.png: 6-DROID Cap.png,
       2-Tribal Supernova Ivory.png: 6-DROID Cap.png,
       3-Tribal White.png: 6-DROID Cap.png,
-      2-Bones.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
-      6-Buzz.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
-      2-Cable Orb.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
-      6-Cables.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
-      6-Genie.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
-      2-Jet.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
-      2-Reactor.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
-      2-Rocket.png: [2-Viking Grey A.png, 2-Viking Grey B.png, 3-Viking Brown A.png, 3-Viking Brown B.png],
+      3-Bones.png:
+        [
+          2-Viking Grey A.png,
+          2-Viking Grey B.png,
+          3-Viking Brown A.png,
+          3-Viking Brown B.png,
+        ],
+      5-Buzz.png:
+        [
+          2-Viking Grey A.png,
+          2-Viking Grey B.png,
+          3-Viking Brown A.png,
+          3-Viking Brown B.png,
+        ],
+      4-Cable Orb.png:
+        [
+          2-Viking Grey A.png,
+          2-Viking Grey B.png,
+          3-Viking Brown A.png,
+          3-Viking Brown B.png,
+        ],
+      5-Cables.png:
+        [
+          2-Viking Grey A.png,
+          2-Viking Grey B.png,
+          3-Viking Brown A.png,
+          3-Viking Brown B.png,
+        ],
+      4-Genie.png:
+        [
+          2-Viking Grey A.png,
+          2-Viking Grey B.png,
+          3-Viking Brown A.png,
+          3-Viking Brown B.png,
+          2-Ugly Blue_black.png,
+          2-Ugly Blue.png,
+          2-Ugly Green_black.png,
+          2-Ugly Green.png,
+          2-Ugly Red_black.png,
+          2-Ugly Red.png,
+        ],
+      3-Jet.png:
+        [
+          2-Viking Grey A.png,
+          2-Viking Grey B.png,
+          3-Viking Brown A.png,
+          3-Viking Brown B.png,
+        ],
+      3-Reactor.png:
+        [
+          2-Viking Grey A.png,
+          2-Viking Grey B.png,
+          3-Viking Brown A.png,
+          3-Viking Brown B.png,
+        ],
+      3-Rocket.png:
+        [
+          2-Viking Grey A.png,
+          2-Viking Grey B.png,
+          3-Viking Brown A.png,
+          3-Viking Brown B.png,
+        ],
     }
 Combinations:
   4-Glass.png:
