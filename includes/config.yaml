@@ -7,18 +7,18 @@ Clashes:
     }
   manClashes:
     {
-      3.5-Beard Grey.png: 6-Headphones.png,
-      3.5-Beard White.png: 6-Headphones.png,
-      3-Flight Jacket.png: 3-Bones.png,
-      6-Genie.png: 2-Flight Jacket.png,
-      4-Glasses Witch.png: 6-DROID Cap.png,
-      6-Goggles Visor.png: 6-DROID Cap.png,
-      6-Googles Data.png: 6-DROID Cap.png,
-      1-Laser.png: 3-Cowboy Voodoo.png,
+      3.5-Beard Grey.png: [6-Headphones.png],
+      3.5-Beard White.png: [6-Headphones.png],
+      3-Flight Jacket.png: [3-Bones.png],
+      6-Genie.png: [2-Flight Jacket.png],
+      4-Glasses Witch.png: [6-DROID Cap.png],
+      6-Goggles Visor.png: [6-DROID Cap.png],
+      6-Googles Data.png: [6-DROID Cap.png],
+      1-Laser.png: [3-Cowboy Voodoo.png],
       2-Quasar.png: [6-DROID Cap.png, 3-Cowboy Voodoo.png],
-      1-Tribal Supernova Gold.png: 6-DROID Cap.png,
-      2-Tribal Supernova Ivory.png: 6-DROID Cap.png,
-      3-Tribal White.png: 6-DROID Cap.png,
+      1-Tribal Supernova Gold.png: [6-DROID Cap.png],
+      2-Tribal Supernova Ivory.png: [6-DROID Cap.png],
+      3-Tribal White.png: [6-DROID Cap.png],
       3-Bones.png:
         [
           2-Viking Grey A.png,

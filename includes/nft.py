@@ -131,6 +131,12 @@ class Nft:
             self.layers.insert(6, layer_to_move)
             self.dnaPaths.insert(6, dna_to_move)
 
+        if '3.5-Beard Grey.png' in self.dnaPaths or '3.5-Beard White.png' in self.dnaPaths:
+                if '6-Headphones.png' in self.dnaPaths:
+                    print('***********')
+                    print('Beard and Headphones - NFT#:', self.number)
+                    print('***********')
+
     def CreateMetadata(self):
         with open(os.path.dirname(__file__) + '/../output/nfts/' + self.folder_path + '/' + str(self.number) + '.json', 'w') as jsonFile:
             # The following two lines make this project compatible with new features in CMv2 (Candy Machine version 2)

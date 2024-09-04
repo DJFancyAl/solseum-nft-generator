@@ -357,7 +357,8 @@ class NftCreator:
             clashes = self.config['Clashes']['manClashes']
 
         potentialItems = itemsPath[index]
-        item = potentialItems[mid]        
+        item = potentialItems[mid]
+
 
         if item in clashes[potential_conflict]:
             return True
