@@ -1,9 +1,9 @@
 {
     "name": "Droid Capital",
-    "symbol": "HASH",
-    "description": "234 Servers Mining Crypto",
+    "symbol": "DROID",
+    "description": "Droid Capital NFT Collecton",
     "image": "1.png",
-    "external_url": "https://hashrateservers.com",
+    "external_url": "https://www.droidcapital.net/",
     "attributes": [],
     "properties": {
         "files": [
@@ -15,5 +15,3 @@
         "category": "image"
     }
 }
-
-
